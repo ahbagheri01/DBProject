@@ -32,3 +32,23 @@ INSERT INTO airline(name,managerID) VALUES
 ("qatar",1),
 ("dubai",13);
 #
+
+# insert data to flight
+INSERT INTO flight(airlineid) VALUES
+(1),(1),(1),
+(2),(2),(3);
+#
+
+
+# insert data to ticket_type
+INSERT INTO ticket_type(type_string,price) VALUES
+("business",1000),
+("economy",500);
+#
+#-----------
+# insert data to ticket
+INSERT INTO ticket(passenger_id,flight_number,
+passport_number,seat_number,ticket_date,ticket_typeid) VALUES
+("business",1000),
+("economy",500);
+#
