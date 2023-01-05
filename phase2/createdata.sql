@@ -7,6 +7,12 @@ INSERT INTO manager(username,password) VALUES
 ("hossein","hossein"),
 ("ali","ali130");
 
+# insert data to supervisor
+INSERT INTO supervisor(username,password) VALUES
+("javad","javad123"),
+("matin","shoja"),
+("sajad","eghbali");
+
 # insert data to passenger
 INSERT INTO passenger(firstname,lastname) VALUES
 ("helia","ahmadi"),
