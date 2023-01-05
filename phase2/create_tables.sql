@@ -1,3 +1,4 @@
+
 CREATE DATABASE IF NOT EXISTS dbproject;
 USE dbproject;
 CREATE TABLE IF NOT EXISTS manager(
@@ -6,7 +7,6 @@ CREATE TABLE IF NOT EXISTS manager(
     password varchar(64) NOT NULL,
     PRIMARY KEY (username)
     );
-
 CREATE TABLE IF NOT EXISTS passenger(
     id int,
     firstname varchar(20) NOT NULL,
@@ -23,3 +23,15 @@ CREATE TABLE IF NOT EXISTS airline(
 
 # DROP TABLE manager;
 SELECT * FROM airline;
+
+
+
+
+
+
+
+
+
+
+
+
