@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS flight(
 CREATE TABLE IF NOT EXISTS ticket_type(
     typeid int AUTO_INCREMENT PRIMARY KEY, # added for convinient
   	type_string varchar(20),
-  	price int NOT NULL,
+  	price int NOT NULL
     );
     
 CREATE TABLE IF NOT EXISTS survey(
@@ -56,6 +56,32 @@ CREATE TABLE IF NOT EXISTS ticket(
    	FOREIGN KEY(passenger_id) REFERENCES passenger(id),
   	FOREIGN KEY(flight_number) REFERENCES flight(flight_number), 
   	FOREIGN KEY(ticket_typeid) REFERENCES ticket_type(typeid),
-  	FOREIGN KEY(surveyid) REFERENCES survey(id), 
+  	FOREIGN KEY(surveyid) REFERENCES survey(id)
     );
-    
+
+CREATE TABLE IF NOT EXISTS question(
+    id int AUTO_INCREMENT PRIMARY KEY, # added for convinient
+    mandatory BOOLEAN DEFAULT false,
+    ticket_typeid int NOT NULL,
+    surveyid int NOT NULL,
+    FOREIGN KEY(surveyid) REFERENCES survey(id)
+    FOREIGN KEY(ticket_typeid) REFERENCES ticket_type(typeid)
+    );
+CREATE TABLE IF NOT EXISTS answer(
+    id int AUTO_INCREMENT PRIMARY KEY, # added for convinient
+    ticketid int NOT NULL,
+    questionid int NOT NULL,
+    createtion_date DATETIME NOT NULL,
+    FOREIGN KEY(ticketid) REFERENCES ticket(ticket_number)
+    FOREIGN KEY(questionid) REFERENCES question(id)
+    );
+CREATE TABLE IF NOT EXISTS supervisor(
+    id int AUTO_INCREMENT PRIMARY KEY, # added for convinient
+    username varchar(20) NOT NULL UNIQUE,
+    password varchar(128) NOT NULL
+    );
+CREATE TABLE IF NOT EXISTS q_multiple_choice(
+    questionid int PRIMARY KEY, # added for convinient
+    txt varchar(100) NOT NULL,
+    FOREIGN KEY(questionid) REFERENCES question(id)
+    );
