@@ -1,3 +1,4 @@
+DROP DATABASE dbproject;
 CREATE DATABASE IF NOT EXISTS dbproject;
 USE dbproject;
 CREATE TABLE IF NOT EXISTS manager(
@@ -53,6 +54,7 @@ CREATE TABLE IF NOT EXISTS ticket(
   	ticket_date DATETIME NOT NULL,
   	ticket_typeid int NOT NULL,	
   	surveyid int,
+    UNIQUE (passenger_id,flight_number),
    	FOREIGN KEY(passenger_id) REFERENCES passenger(id),
   	FOREIGN KEY(flight_number) REFERENCES flight(flight_number), 
   	FOREIGN KEY(ticket_typeid) REFERENCES ticket_type(typeid),

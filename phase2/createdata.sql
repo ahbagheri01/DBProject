@@ -26,9 +26,9 @@ INSERT INTO passenger(firstname,lastname) VALUES
 
 # insert data to airline
 INSERT INTO airline(name,managerID) VALUES
-("mahan",12),
-("qatar",1),
-("dubai",13);
+("mahan",1),
+("qatar",2),
+("dubai",3);
 #
 
 # insert data to flight
@@ -43,10 +43,22 @@ INSERT INTO ticket_type(type_string,price) VALUES
 ("business",1000),
 ("economy",500);
 #
+
+SELECT * FROM passenger LIMIT 100;
+SELECT * FROM flight LIMIT 100;
+SELECT * FROM ticket_type LIMIT 100;
+
 #-----------
 # insert data to ticket
 INSERT INTO ticket(passenger_id,flight_number,
 passport_number,seat_number,ticket_date,ticket_typeid) VALUES
-("business",1000),
-("economy",500);
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,2 ,12343 , 45, "2021-03-20 10:42:00" ,2),
+(1 , ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1);
 #
