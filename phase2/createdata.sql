@@ -1,6 +1,4 @@
 USE dbproject;
-SELECT * FROM manager;
-SELECT * FROM 
 # insert data to mabager
 INSERT INTO manager(username,password) VALUES
 ("amirhossein","amir1401"),
