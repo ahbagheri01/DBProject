@@ -1,3 +1,4 @@
+DROP DATABASE dbproject;
 CREATE DATABASE IF NOT EXISTS dbproject;
 USE dbproject;
 CREATE TABLE IF NOT EXISTS manager(
@@ -64,7 +65,7 @@ CREATE TABLE IF NOT EXISTS question(
     mandatory BOOLEAN DEFAULT false,
     ticket_typeid int NOT NULL,
     surveyid int NOT NULL,
-    FOREIGN KEY(surveyid) REFERENCES survey(id)
+    FOREIGN KEY(surveyid) REFERENCES survey(id),
     FOREIGN KEY(ticket_typeid) REFERENCES ticket_type(typeid)
     );
 CREATE TABLE IF NOT EXISTS answer(
@@ -72,7 +73,7 @@ CREATE TABLE IF NOT EXISTS answer(
     ticketid int NOT NULL,
     questionid int NOT NULL,
     createtion_date DATETIME NOT NULL,
-    FOREIGN KEY(ticketid) REFERENCES ticket(ticket_number)
+    FOREIGN KEY(ticketid) REFERENCES ticket(ticket_number),
     FOREIGN KEY(questionid) REFERENCES question(id)
     );
 CREATE TABLE IF NOT EXISTS supervisor(
@@ -81,7 +82,48 @@ CREATE TABLE IF NOT EXISTS supervisor(
     password varchar(128) NOT NULL
     );
 CREATE TABLE IF NOT EXISTS q_multiple_choice(
-    questionid int PRIMARY KEY, # added for convinient
+    questionid int PRIMARY KEY,
     txt varchar(100) NOT NULL,
     FOREIGN KEY(questionid) REFERENCES question(id)
     );
+
+CREATE TABLE IF NOT EXISTS q_descriptive(
+    questionid int PRIMARY KEY,
+    txt varchar(100) NOT NULL,
+    FOREIGN KEY(questionid) REFERENCES question(id)
+    );
+CREATE TABLE IF NOT EXISTS a_descriptive(
+    answerid int PRIMARY KEY, # added for convinient
+    txt varchar(100) NOT NULL,
+    FOREIGN KEY(answerid) REFERENCES answer(id)
+    );
+CREATE TABLE IF NOT EXISTS options(
+    questionid int, # added for convinient
+    number int,
+    txt varchar(100) NOT NULL,
+    FOREIGN KEY(questionid) REFERENCES question(id),
+    PRIMARY KEY(questionid,number)
+    );
+CREATE TABLE IF NOT EXISTS a_multi_choice(
+    answerid int PRIMARY KEY, # added for convinient
+    txt varchar(100) NOT NULL,
+    FOREIGN KEY(answerid) REFERENCES answer(id),
+    questionid int,
+    number int,
+    FOREIGN KEY(questionid) REFERENCES question(id)
+    );
+CREATE TABLE IF NOT EXISTS assistance(
+    adminid int,
+    assistanceid int,
+    surveyid int,
+    PRIMARY KEY(adminid,assistanceid,surveyid),
+    FOREIGN KEY(adminid) REFERENCES manager(id),
+    FOREIGN KEY(assistanceid) REFERENCES manager(id),
+    FOREIGN KEY(surveyid) REFERENCES survey(id)
+    );
+CREATE TABLE IF NOT EXISTS approving(
+    supervisorid int NOT NULL,
+    questionid int NOT NULL,
+    approve_date DATETIME NOT NULL
+    );
+
