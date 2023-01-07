@@ -89,10 +89,10 @@ INSERT INTO question(mandatory,ticket_typeid,surveyid) VALUES
 (true ,1 , 2),
 (true ,1 , 2),
 (true ,1 , 2),
-(true ,1 , 2),
-(true ,1 , 2),
-(true ,1 , 2),
-(true ,1 , 2),
+(true ,1 , 1),
+(true ,1 , 1),
+(true ,1 , 1),
+(true ,1 , 1),
 (true ,1 , 2),
 (true ,2 , 2),
 (true ,2 , 2);
@@ -137,8 +137,78 @@ INSERT INTO q_descriptive(questionid,txt) VALUES
 (10,"how do you describe your financial state?"),
 (11,"How often do you fly?"),
 (12," Please tell us what can we do to improve?");
-#-----------
 
+
+INSERT INTO q_multiple_choice(questionid,txt) VALUES
+(13,"Gender?"),
+(14,"Age group?"),
+(15,"Which of the following describes you best?"),
+(16,"Departure and / or arrival time was more convenient?"),
+(17,"Frequent flyer program?"),
+(18,"Inflight services are better?"),
+(19,"Travel agent / company travel department recommendation?"),
+(20,"Availability of flight attendants?"),
+(21,"Pilot's communication with passengers?"),
+(22,"Please indicate how long you waited in line?");
+
+INSERT INTO options(questionid,number,txt) VALUES
+(13,1,"Male"),
+(13,2,"Female"),
+
+(14,1,"<20"),
+(14,2,"20-30"),
+(14,3,"30-40"),
+(14,4,"40-60"),
+(14,5,"60<"),
+
+(15,1,"Student"),
+(15,2,"self-employed"),
+(15,3,"Retired"),
+(15,4,"Employed"),
+(15,5,"Not employed"),
+
+(16,1,"Very important"),
+(16,2,"Important"),
+(16,3,"Neutral"),
+(16,4,"Unimportant"),
+(16,5,"Not at all important"),
+
+(17,1,"Very important"),
+(17,2,"Important"),
+(17,3,"Neutral"),
+(17,4,"Unimportant"),
+(17,5,"Not at all important"),
+
+(18,1,"Very important"),
+(18,2,"Important"),
+(18,3,"Neutral"),
+(18,4,"Unimportant"),
+(18,5,"Not at all important"),
+
+(19,1,"Very important"),
+(19,2,"Important"),
+(19,3,"Neutral"),
+(19,4,"Unimportant"),
+(19,5,"Not at all important"),
+
+(20,1,"Very important"),
+(20,2,"Important"),
+(20,3,"Neutral"),
+(20,4,"Unimportant"),
+(20,5,"Not at all important"),
+
+(21,1,"Very important"),
+(21,2,"Important"),
+(21,3,"Neutral"),
+(21,4,"Unimportant"),
+(21,5,"Not at all important"),
+
+(22,1,"Didn't Use"),
+(22,2,"No Wait"),
+(22,3,"0-5 min"),
+(22,4,"11-20 min"),
+(22,5,"20+ min");
+#-----------
 SELECT airline.id as air,manager.id manager,flight.flight_number FROM manager INNER JOIN airline on airline.managerID = manager.id
 INNER JOIN flight  ON flight.airlineid = airline.id; 
 
