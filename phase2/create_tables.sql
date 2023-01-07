@@ -96,7 +96,9 @@ CREATE TABLE IF NOT EXISTS q_descriptive(
 CREATE TABLE IF NOT EXISTS a_descriptive(
     answerid int PRIMARY KEY, # added for convinient
     txt varchar(100) NOT NULL,
-    FOREIGN KEY(answerid) REFERENCES answer(id)
+    FOREIGN KEY(answerid) REFERENCES answer(id),
+    questionid int,
+    FOREIGN KEY(questionid) REFERENCES question(id)
     );
 CREATE TABLE IF NOT EXISTS options(
     questionid int, # added for convinient
