@@ -102,7 +102,7 @@ INSERT INTO approving(supervisorid,questionid,approve_date) VALUES
 (1,1,NOW()),
 (1,2,NOW()),
 (1,3,NOW()),
-(1,4,NOW()),
+#(1,4,NOW()),
 (1,5,NOW()),
 (1,6,NOW()),
 (1,7,NOW()),
