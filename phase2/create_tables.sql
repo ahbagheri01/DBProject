@@ -1,4 +1,4 @@
-DROP DATABASE dbproject;
+DROP DATABASE IF EXISTS dbproject;
 CREATE DATABASE IF NOT EXISTS dbproject;
 USE dbproject;
 CREATE TABLE IF NOT EXISTS manager(
