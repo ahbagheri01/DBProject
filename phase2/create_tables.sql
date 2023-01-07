@@ -109,11 +109,11 @@ CREATE TABLE IF NOT EXISTS options(
     );
 CREATE TABLE IF NOT EXISTS a_multi_choice(
     answerid int PRIMARY KEY, # added for convinient
-    txt varchar(100) NOT NULL,
     FOREIGN KEY(answerid) REFERENCES answer(id),
     questionid int,
     number int,
-    FOREIGN KEY(questionid) REFERENCES question(id)
+    FOREIGN KEY(questionid) REFERENCES question(id),
+    UNIQUE (answerid,questionid,number)
     );
 CREATE TABLE IF NOT EXISTS assistance(
     adminid int,

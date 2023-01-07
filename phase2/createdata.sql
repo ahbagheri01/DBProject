@@ -233,6 +233,10 @@ INSERT INTO answer(ticketid,questionid,createtion_date) VALUES
 (4,1,"2020-01-25 11:30:00");
 
 
+#q_multiple_choice
+
+
+
 INSERT INTO a_descriptive(answerid,txt,questionid) VALUES
 (1,"it was ok ali",11),
 (2,"fine but could be better",10),
@@ -257,15 +261,12 @@ INSERT INTO a_descriptive(answerid,txt,questionid) VALUES
 (20,"it was ok ali",1);
 
 
+
+
 #-----------
 SELECT airline.id as air,manager.id manager,flight.flight_number FROM manager INNER JOIN airline on airline.managerID = manager.id
 INNER JOIN flight  ON flight.airlineid = airline.id; 
 SELECT * FROM question;
 
-SELECT t.ticket_number,t.ticket_date, q.id,qd.txt,s.start_data FROM ticket as t INNER JOIN survey as s on t.surveyid = s.id INNER JOIN question as q on q.surveyid = s.id
-INNER JOIN q_descriptive qd on qd.questionid= q.id 
-where q.id in (SELECT approving.questionid FROM approving) AND s.active = true;
-
-
-
-#-----------
+SELECT t.ticket_number,t.ticket_date, q.questionid,qd.txt,s.start_data FROM ticket as t INNER JOIN survey as s on t.surveyid = s.id INNER JOIN question as qq on qq.surveyid = s.id INNER JOIN q_multiple_choice as q on qq.id = q.questionid
+INNER JOIN q_descriptive qd on qd.questionid= q.questionid ;#-----------

@@ -23,4 +23,4 @@ CREATE PROCEDURE participate_surveyqm (IN passnum int, IN ticketnum int)
           AND EXISTS (SELECT ap.questionid FROM dbproject.approving as ap where ap.questionid = qu.id)
           ) ORDER BY ID ASC, num ASC;
        END;
-CALL participate_surveyqm(12343,1);
+CALL participate_surveyqm(12346,1);
