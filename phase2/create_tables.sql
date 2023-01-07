@@ -127,6 +127,9 @@ CREATE TABLE IF NOT EXISTS assistance(
 CREATE TABLE IF NOT EXISTS approving(
     supervisorid int NOT NULL,
     questionid int NOT NULL,
-    approve_date DATETIME NOT NULL
+    approve_date DATETIME NOT NULL,
+    PRIMARY KEY(supervisorid,questionid),
+    FOREIGN KEY(supervisorid) REFERENCES supervisor(id),
+    FOREIGN KEY(questionid) REFERENCES question(id)
     );
 
