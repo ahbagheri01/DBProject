@@ -208,13 +208,64 @@ INSERT INTO options(questionid,number,txt) VALUES
 (22,3,"0-5 min"),
 (22,4,"11-20 min"),
 (22,5,"20+ min");
+
+
+INSERT INTO answer(ticketid,questionid,createtion_date) VALUES
+(1,11,"2020-01-25 11:30:00"),
+(1,10,"2020-01-25 11:30:00"),
+(1,9,"2020-01-25 11:30:00"),
+(1,8,"2020-01-25 11:30:00"),
+(1,7,"2020-01-25 11:30:00"),
+(1,6,"2020-01-25 11:30:00"),
+(1,5,"2020-01-25 11:30:00"),
+(1,3,"2020-01-25 11:30:00"),
+(1,2,"2020-01-25 11:30:00"),
+(1,1,"2020-01-25 11:30:00"),
+(4,11,"2020-01-25 11:30:00"),
+(4,10,"2020-01-25 11:30:00"),
+(4,9,"2020-01-25 11:30:00"),
+(4,8,"2020-01-25 11:30:00"),
+(4,7,"2020-01-25 11:30:00"),
+(4,6,"2020-01-25 11:30:00"),
+(4,5,"2020-01-25 11:30:00"),
+(4,3,"2020-01-25 11:30:00"),
+(4,2,"2020-01-25 11:30:00"),
+(4,1,"2020-01-25 11:30:00");
+
+
+INSERT INTO a_descriptive(answerid,txt,questionid) VALUES
+(1,"it was ok ali",11),
+(2,"fine but could be better",10),
+(3,"no satisfactory",9),
+(4,"If someone is going to ask you the same old everyday",8),
+(5,"it was ok ali",7),
+(6,"it was ok ali",6),
+(7,"I don’t think I’m being unreasonable",5),
+(8,"it was ok ali",3),
+(9,"it was ok ali",2),
+(10,"it was ok ali",1),
+
+(11,"it was ok ali",11),
+(12,"it was ok ali",10),
+(13,"it was ok ali",9),
+(14,"it was ok ali",8),
+(15,"it was ok ali",7),
+(16,"it was ok ali",6),
+(17,"it was ok ali",5),
+(18,"it was ok ali",3),
+(19,"it was ok ali",2),
+(20,"it was ok ali",1);
+
+
 #-----------
 SELECT airline.id as air,manager.id manager,flight.flight_number FROM manager INNER JOIN airline on airline.managerID = manager.id
 INNER JOIN flight  ON flight.airlineid = airline.id; 
-
-#
 SELECT * FROM question;
+
+SELECT t.ticket_number,t.ticket_date, q.id,qd.txt,s.start_data FROM ticket as t INNER JOIN survey as s on t.surveyid = s.id INNER JOIN question as q on q.surveyid = s.id
+INNER JOIN q_descriptive qd on qd.questionid= q.id 
+where q.id in (SELECT approving.questionid FROM approving) AND s.active = true;
+
 
 
 #-----------
-
