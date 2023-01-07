@@ -9,7 +9,7 @@ CREATE PROCEDURE optionals_question (IN mng int, IN from_date DATETIME,IN to_dat
             
        END;
 
-CALL optionals_question(1,"2020-01-23 12:45:56", "2022-01-23 12:45:56",@answerids);
+CALL optionals_question(1,"1990-01-23 12:45:56", "2025-01-23 12:45:56",@answerids);
 SELECT @answerids;
 
 SELECT am.questionid AS QID, op.number AS opt, op.txt, COUNT(*) 

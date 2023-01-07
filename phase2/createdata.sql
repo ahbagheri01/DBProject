@@ -54,16 +54,6 @@ SELECT * FROM passenger LIMIT 100;
 SELECT * FROM flight LIMIT 100;
 SELECT * FROM ticket_type LIMIT 100;
 
-# insert data to ticket
-INSERT INTO ticket(passenger_id,flight_number,
-passport_number,seat_number,ticket_date,ticket_typeid) VALUES
-(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1),
-(1 ,2 ,12343 , 45, "2021-03-20 10:42:00" ,2),
-(1 ,5, 12343 , 53, "2020-01-23 12:45:56" ,1),
-(2, 1 ,12344 , 22, "2020-01-23 12:45:56" ,1),
-(2 ,5 ,12344 , 20, "2020-01-23 12:45:56" ,2),
-(3 ,5, 12345 , 12, "2020-01-23 12:45:56" ,2);
-
 
 # insert data to survey
 INSERT INTO survey(managerid,flightid,
@@ -71,6 +61,16 @@ active,createtion_date,start_data,end_date,airlineid) VALUES
 (1 ,1 ,true , "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2020-03-23 12:45:56" ,1),
 (1 ,2 ,false , "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2020-03-23 12:45:56" ,1),
 (2 ,4 ,true ,  "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2020-03-23 12:45:56" ,2);
+
+# insert data to ticket
+INSERT INTO ticket(passenger_id,flight_number,
+passport_number,seat_number,ticket_date,ticket_typeid,surveyid) VALUES
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1,1),
+(1 ,2 ,12343 , 45, "2021-03-20 10:42:00" ,2,2),
+(1 ,5, 12343 , 53, "2020-01-23 12:45:56" ,1,NULL),
+(2, 1 ,12344 , 22, "2020-01-23 12:45:56" ,1,1),
+(2 ,5 ,12344 , 20, "2020-01-23 12:45:56" ,1,NULL),
+(3 ,5, 12345 , 12, "2020-01-23 12:45:56" ,2,NULL);
 
 # insert data to question
 INSERT INTO question(mandatory,ticket_typeid,surveyid) VALUES
@@ -123,6 +123,20 @@ INSERT INTO approving(supervisorid,questionid,approve_date) VALUES
 #(1,22,NOW());
 
 
+
+INSERT INTO q_descriptive(questionid,txt) VALUES
+(1,"how do you describe fligh assistances attitude?"),
+(2,"how was the meal?"),
+(3,"how pleasent you found air condotioner?"),
+(4,"how was pilot infomration?"),
+(5,"did you had a good seat?"),
+(6,"what do you think we shoud do about boarding process?"),
+(7,"did you experienced pleasant landing?"),
+(8,"any comments?"),
+(9,"how did you found noise in airplain?"),
+(10,"how do you describe your financial state?"),
+(11,"How often do you fly?"),
+(12," Please tell us what can we do to improve?");
 #-----------
 
 SELECT airline.id as air,manager.id manager,flight.flight_number FROM manager INNER JOIN airline on airline.managerID = manager.id
@@ -134,16 +148,3 @@ SELECT * FROM question;
 
 #-----------
 
-INSERT INTO q_descriptive(questionid,txt) VALUES
-(1,"how do you describe fligh assistances attitude?"),
-(2,"how was the meal?"),
-(3,"how pleasent you found air condotioner?"),
-(4,"how was pilot infomration?"),
-(5,"did you had a good seat?"),
-(6,"what do you think we shoud do about boarding process?"),
-(7,"did you experienced pleasant landing?"),
-(8,""),
-(9,""),
-(10,""),
-(11,""),
-(12,"");
