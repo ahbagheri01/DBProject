@@ -1,17 +1,21 @@
 
 USE dbproject;
-DROP PROCEDURE IF EXISTS participate_survey;
-CREATE PROCEDURE participate_survey (IN passnum int, IN ticketnum int,OUT questions_id int)
+DROP PROCEDURE IF EXISTS optionals_question;
+CREATE PROCEDURE dec_question (IN mng int, IN from_date DATETIME,IN to_date DATETIME, OUT answerids int)
        BEGIN
-            SELECT qu.id INTO questions_id FROM dbproject.ticket as tk INNER JOIN dbproject.question as qu on tk.surveyid = qu.surveyid INNER JOIN survey as sr on sr.id = tk.surveyid where sr.active = true;
+              SELECT am.answerid INTO answerids FROM survey as sr INNER JOIN question as qu on qu.surveyid = sr.id INNER JOIN a_multi_choice as am on am.questionid = qu.id INNER JOIN answer an on an.id = am.answerid
+                     where sr.managerid = mng AND an.createtion_date BETWEEN from_date AND to_date;
+            
        END;
 
-CALL participate_survey(1,2, @questionids);
-SELECT qm.questionid AS ID,qm.txt AS Question FROM q_descriptive qm where questionid in (SELECT @questionids);
+CALL dec_question(1,"2020-01-23 12:45:56", "2022-01-23 12:45:56",@answerids);
+SELECT @answerids;
 
-SELECT qm.questionid AS ID,qm.txt AS Question, op.number AS num, op.txt AS choice 
-FROM q_multiple_choice as qm INNER JOIN options as op on op.questionid = qm.questionid
-where qm.questionid in (SELECT @questionids)
-ORDER BY ID ASC, num ASC;
+SELECT am.questionid AS QID, op.number AS opt, op.txt, COUNT(*) 
+From a_multi_choice as am INNER JOIN options as op on am.questionid = op.questionid
+where am.answerid in (SELECT @answerids)
+GROUP BY QID,opt;
+
+
 
 
