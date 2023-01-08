@@ -233,8 +233,7 @@ INSERT INTO answer(ticketid,questionid,createtion_date) VALUES
 (4,1,"2020-01-25 11:30:00");
 
 
-#q_multiple_choice
-
+#a_descriptive
 
 
 INSERT INTO a_descriptive(answerid,txt,questionid) VALUES
@@ -260,7 +259,31 @@ INSERT INTO a_descriptive(answerid,txt,questionid) VALUES
 (19,"it was ok ali",2),
 (20,"it was ok ali",1);
 
+#a_multi_choice
 
+INSERT INTO answer(ticketid,questionid,createtion_date) VALUES
+(1,16,"2020-01-25 11:30:00"),
+(1,17,"2020-01-25 11:30:00"),
+(1,18,"2020-01-25 11:30:00"),
+(1,19,"2020-01-25 11:30:00"),
+
+(2,16,"2020-01-25 11:30:00"),
+(2,17,"2020-01-25 11:30:00"),
+(2,18,"2020-01-25 11:30:00"),
+(2,19,"2020-01-25 11:30:00");
+
+SELECT t.ticket_number,t.ticket_date, q.questionid,q.txt,s.start_data FROM ticket as t INNER JOIN survey as s on t.surveyid = s.id INNER JOIN question as qq on qq.surveyid = s.id INNER JOIN q_multiple_choice as q on qq.id = q.questionid INNER JOIN options as op on op.questionid = q.questionid;
+
+INSERT INTO a_multi_choice(answerid,questionid,number) VALUES
+(21,16,1),
+(22,17,2),
+(23,18,3),
+(24,19,1),
+
+(25,16,2),
+(26,17,3),
+(27,18,4),
+(28,19,4);
 
 
 #-----------
@@ -269,4 +292,8 @@ INNER JOIN flight  ON flight.airlineid = airline.id;
 SELECT * FROM question;
 
 SELECT t.ticket_number,t.ticket_date, q.questionid,qd.txt,s.start_data FROM ticket as t INNER JOIN survey as s on t.surveyid = s.id INNER JOIN question as qq on qq.surveyid = s.id INNER JOIN q_multiple_choice as q on qq.id = q.questionid
-INNER JOIN q_descriptive qd on qd.questionid= q.questionid ;#-----------
+INNER JOIN q_descriptive qd on qd.questionid= q.questionid ;
+#-----------
+
+
+
