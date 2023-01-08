@@ -283,7 +283,7 @@ INSERT INTO a_multi_choice(answerid,questionid,number) VALUES
 (25,16,2),
 (26,17,3),
 (27,18,4),
-(28,19,4);
+(28,19,1);
 
 
 #-----------
