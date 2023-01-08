@@ -58,9 +58,9 @@ SELECT * FROM ticket_type LIMIT 100;
 # insert data to survey
 INSERT INTO survey(managerid,flightid,
 active,createtion_date,start_data,end_date,airlineid) VALUES
-(1 ,1 ,true , "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2020-03-23 12:45:56" ,1),
-(1 ,2 ,false , "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2020-03-23 12:45:56" ,1),
-(2 ,4 ,true ,  "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2020-03-23 12:45:56" ,2);
+(1 ,1 ,true , "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2024-03-23 12:45:56" ,1),
+(1 ,2 ,true , "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2024-03-23 12:45:56" ,1),
+(2 ,4 ,true ,  "2020-01-23 12:45:56", "2020-02-23 12:45:56", "2024-03-23 12:45:56" ,2);
 
 # insert data to ticket
 INSERT INTO ticket(passenger_id,flight_number,
@@ -82,7 +82,10 @@ passport_number,seat_number,ticket_date,ticket_typeid,surveyid,participated) VAL
 (2 ,8 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
 (2 ,9 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
 (2 ,10 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
-(2 ,11 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false);
+(2 ,11 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+
+(2 ,4 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(1 ,4 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false);
 
 
 # insert data to question
