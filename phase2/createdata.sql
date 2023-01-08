@@ -76,7 +76,14 @@ passport_number,seat_number,ticket_date,ticket_typeid,surveyid,participated) VAL
 (1 ,8 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
 (1 ,9 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
 (1 ,10 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
-(1 ,11 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false);
+(1 ,11 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+
+(2 ,7 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(2 ,8 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(2 ,9 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(2 ,10 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(2 ,11 ,12344 , 23, "2023-01-06 12:45:56" ,1,NULL,false);
+
 
 # insert data to question
 INSERT INTO question(mandatory,ticket_typeid,surveyid) VALUES
