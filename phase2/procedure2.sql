@@ -13,4 +13,4 @@ CREATE PROCEDURE optionals_question (IN mng int, IN from_date DATETIME,IN to_dat
               GROUP BY QID,opt;
        END;
 
-CALL optionals_question(1,"1990-01-23 12:45:56", "2025-01-23 12:45:56");
+CALL optionals_question(1,"2020-01-23 12:45:56", "2021-12-23 12:45:56");

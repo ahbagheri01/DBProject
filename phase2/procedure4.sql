@@ -9,4 +9,4 @@ CREATE PROCEDURE qmmanageraccesss (IN mng int)
           GROUP BY q.id,tkt.type_string;
        END;
 
-CALL qmmanageraccesss(1);
+CALL qmmanageraccesss(3);

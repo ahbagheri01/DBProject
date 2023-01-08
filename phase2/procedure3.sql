@@ -13,7 +13,8 @@ CREATE PROCEDURE dec_question (IN mng int, IN pattern varchar(50))
               );
        END;
 
-CALL dec_question(1,"if");
+CALL dec_question(1,"better");
+
 
 
 

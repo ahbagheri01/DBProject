@@ -9,7 +9,7 @@ CREATE PROCEDURE participate_surveyqd (IN passnum int, IN ticketnum int)
           AND EXISTS (SELECT ap.questionid FROM dbproject.approving as ap where ap.questionid = qu.id) AND tk.participated = false
           );
        END;
-CALL participate_surveyqd(12344,4);
+CALL participate_surveyqd(12343,1);
 
 
 DROP PROCEDURE IF EXISTS participate_surveyqm;

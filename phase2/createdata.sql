@@ -40,7 +40,7 @@ INSERT INTO airline(name,managerID) VALUES
 # insert data to flight
 INSERT INTO flight(airlineid) VALUES
 (1),(1),(1),
-(2),(2),(3);
+(2),(2),(3),(1),(1),(1),(1),(1);
 #
 
 
@@ -64,13 +64,19 @@ active,createtion_date,start_data,end_date,airlineid) VALUES
 
 # insert data to ticket
 INSERT INTO ticket(passenger_id,flight_number,
-passport_number,seat_number,ticket_date,ticket_typeid,surveyid) VALUES
-(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1,1),
-(1 ,2 ,12343 , 45, "2021-03-20 10:42:00" ,2,2),
-(1 ,5, 12343 , 53, "2020-01-23 12:45:56" ,1,NULL),
-(2, 1 ,12344 , 22, "2020-01-23 12:45:56" ,1,1),
-(2 ,5 ,12344 , 20, "2020-01-23 12:45:56" ,1,NULL),
-(3 ,5, 12345 , 12, "2020-01-23 12:45:56" ,2,NULL);
+passport_number,seat_number,ticket_date,ticket_typeid,surveyid,participated) VALUES
+(1 ,1 ,12343 , 23, "2020-01-23 12:45:56" ,1,1,true),
+(1 ,2 ,12343 , 45, "2021-03-20 10:42:00" ,2,2,true),
+(1 ,5, 12343 , 53, "2020-01-23 12:45:56" ,1,NULL,false),
+(2, 1 ,12344 , 22, "2020-01-23 12:45:56" ,1,1,false),
+(2 ,5 ,12344 , 20, "2020-01-23 12:45:56" ,1,NULL,false),
+(3 ,5, 12345 , 12, "2020-01-23 12:45:56" ,2,3,true),
+
+(1 ,7 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(1 ,8 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(1 ,9 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(1 ,10 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false),
+(1 ,11 ,12343 , 23, "2023-01-06 12:45:56" ,1,NULL,false);
 
 # insert data to question
 INSERT INTO question(mandatory,ticket_typeid,surveyid) VALUES
@@ -95,14 +101,15 @@ INSERT INTO question(mandatory,ticket_typeid,surveyid) VALUES
 (true ,1 , 1),
 (true ,1 , 2),
 (true ,2 , 2),
-(true ,2 , 2);
+(true ,2 , 2),
+(true ,1 , 3),
+(true ,2 , 3);
 
 
 INSERT INTO approving(supervisorid,questionid,approve_date) VALUES
 (1,1,NOW()),
 (1,2,NOW()),
 (1,3,NOW()),
-#(1,4,NOW()),
 (1,5,NOW()),
 (1,6,NOW()),
 (1,7,NOW()),
@@ -118,10 +125,9 @@ INSERT INTO approving(supervisorid,questionid,approve_date) VALUES
 (1,17,NOW()),
 (1,18,NOW()),
 (1,19,NOW()),
-(1,20,NOW());
-#(1,21,NOW()),
-#(1,22,NOW());
-
+(1,20,NOW()),
+(1,23,NOW()),
+(1,24,NOW());
 
 
 INSERT INTO q_descriptive(questionid,txt) VALUES
@@ -136,7 +142,9 @@ INSERT INTO q_descriptive(questionid,txt) VALUES
 (9,"how did you found noise in airplain?"),
 (10,"how do you describe your financial state?"),
 (11,"How often do you fly?"),
-(12," Please tell us what can we do to improve?");
+(12," Please tell us what can we do to improve?"),
+(23,"How often do you fly?"),
+(24," Please tell us what can we do to improve?");
 
 
 INSERT INTO q_multiple_choice(questionid,txt) VALUES
@@ -230,7 +238,9 @@ INSERT INTO answer(ticketid,questionid,createtion_date) VALUES
 (4,5,"2020-01-25 11:30:00"),
 (4,3,"2020-01-25 11:30:00"),
 (4,2,"2020-01-25 11:30:00"),
-(4,1,"2020-01-25 11:30:00");
+(4,1,"2020-01-25 11:30:00"),
+(6,23,"2020-01-25 11:30:00"),
+(6,24,"2020-01-25 11:30:00");
 
 
 #a_descriptive
@@ -257,7 +267,9 @@ INSERT INTO a_descriptive(answerid,txt,questionid) VALUES
 (17,"it was ok ali",5),
 (18,"it was ok ali",3),
 (19,"it was ok ali",2),
-(20,"it was ok ali",1);
+(20,"it was ok ali",1),
+(21,"it could be better",23),
+(22,"i dont know",24);
 
 #a_multi_choice
 
