@@ -285,6 +285,9 @@ INSERT INTO a_multi_choice(answerid,questionid,number) VALUES
 (27,18,4),
 (28,19,1);
 
+INSERT INTO assistance(adminid,assistanceid,surveyid) VALUES 
+(1,3,1),
+(2,4,3);
 
 #-----------
 SELECT airline.id as air,manager.id manager,flight.flight_number FROM manager INNER JOIN airline on airline.managerID = manager.id
@@ -293,7 +296,13 @@ SELECT * FROM question;
 
 SELECT t.ticket_number,t.ticket_date, q.questionid,qd.txt,s.start_data FROM ticket as t INNER JOIN survey as s on t.surveyid = s.id INNER JOIN question as qq on qq.surveyid = s.id INNER JOIN q_multiple_choice as q on qq.id = q.questionid
 INNER JOIN q_descriptive qd on qd.questionid= q.questionid ;
+
+SELECT * FROM survey INNER JOIN manager on manager.id = survey.managerid;
+
+SELECT * FROM manager;
+
 #-----------
+
 
 
 

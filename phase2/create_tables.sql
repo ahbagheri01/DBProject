@@ -133,4 +133,3 @@ CREATE TABLE IF NOT EXISTS approving(
     FOREIGN KEY(supervisorid) REFERENCES supervisor(id),
     FOREIGN KEY(questionid) REFERENCES question(id)
     );
-
